@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    {% block starthead %}{% endblock starthead %}
+    <meta charset="{{ resource.meta.charset }}">
+    <meta http-equiv="X-UA-Compatible" content="{{ resource.meta.compatibility }}">
+
+    <title>{% block title %}{{ resource.meta.title }}{% endblock %}</title>
+    <meta name="description" content="{{ resource.meta.description }}">
+    <meta name="author" content="{{ resource.meta.author }}">
+
+    <!--  Mobile viewport optimized: j.mp/bplateviewport -->
+    <meta name="viewport" content="{{ resource.meta.viewport }}">
+
+    {% block favicons %}
+      <!-- Place favicon.ico & apple-touch-icon.png
+           in the root of your domain and delete these references -->
+      <link rel="shortcut icon" href="{{ media_url('favicon.ico') }}">
+      <link rel="apple-touch-icon" href="{{ media_url('apple-touch-icon.png') }}">
+    {% endblock favicons %}
+
+    {% block css %}
+      <!--<link rel="stylesheet" href="https://github.com/themes/minimal/stylesheets/styles.css">-->
+      <link rel="stylesheet" href="{{ media_url('js/styles.css') }}">
+      <style>
+        header { zoom: 1.2; }
+        header h1 { margin-bottom: 5px; }
+        header h1 a { color: #494949; font-weight: bold; }
+        header h3 { margin-top: 20px; margin-bottom: 5px; }
+        header p.view { margin-bottom: 5px; }
+        header p.view small { padding-top: 2px; }
+        header ul {
+          zoom: 0.7;
+          margin-top: 25px;
+        }
+        section p { margin-top: 10px; }
+        section h1 { margin-bottom: 15px; }
+        section h2 { margin-bottom: 10px; }
+        section h2 { margin-bottom: 10px; }
+        footer { bottom: 20px; }
+        footer p { margin-bottom: 5px; }
+        .half-width {
+          float: left;
+          width: 200px;
+          list-style: none;
+          padding: 5px;
+          margin: 7px;
+          margin-bottom: 10px;
+        }
+        .half-width h4 {
+          margin-bottom: 5px;
+        }
+        .half-width ul {
+          padding-left: 0;
+        }
+        .half-width ul li {
+          list-style: inside;
+          font-size: 15px;
+        }
+        .clear-fix {
+          clear: both;
+        }
+      </style>
+      <!--<script src="https://github.com/themes/minimal/javascripts/scale.fix.js"></script>-->
+      <script src="{{ media_url('js/scale.fix.js') }}"></script>
+    {% endblock css %}
+  </head> 
+
+  <body id="{{ resource.meta.id if resource.meta.id else resource.slug }}">
+
+    {% block content %}
+      <div class="wrapper">
+
+        {% block wrapper %}
+          <header>
+
+            {% block header %}
+                <h1><a href="{{ content_url('') }}">Andrew Dawson</a></h1>
+            {% endblock header %}
+
+            {% block nav %}
+                <br>
+                <p class="view"><a href="{{ content_url('research.html') }}">Research<small>things I am interested in</small></a></p>
+                <p class="view"><a href="{{ content_url('projects.html') }}">Open Source Projects<small>code you might find useful</small></a></p>
+                <p class="view"><a href="{{ content_url('vitae.html') }}">Vitae<small>publications and CV</small></a></p>
+                <p class="view"><a href="{{ content_url('contact.html') }}">Contact<small>my contact details</small></a></p>
+            {% endblock nav %}
+            
+            {% block media %}
+                <h3>On the Web</h3>
+                <p class="view"><a href="http://github.com/ajdawson" target="tab">GitHub</a></p>
+                <p class="view"><a href="http://www2.physics.ox.ac.uk/contacts/people/dawson">Oxford Physics Profile</a></p>
+            {% endblock media %}
+
+          </header>
+
+          <section id="main">
+
+            {% block main %}
+              {{ content }}
+            {% endblock main %}
+
+          </section>
+
+          {% block footer %}
+            <footer>
+              <p><small>Built with <a href="http://hyde.github.io/">Hyde</a> &mdash;
+                        Layout adapted from <a href="https://github.com/orderedlist">orderedlist</a>.</small></p>
+            </footer>
+
+          {% endblock footer %}
+
+        {% endblock wrapper %}
+
+      </div>
+
+    {% endblock content %}
+
+  </body>
+
+</html>

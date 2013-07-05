@@ -1,0 +1,14 @@
+extends: site.yaml
+
+mode: production
+media_url: /user/dawson/media
+base_url: /user/dawson
+
+deploy_root: deploy_production
+
+publisher:
+    ssh:
+        type: hyde.ext.publishers.ssh.SSH
+        username: dawson
+        server: ellinga.atm.ox.ac.uk
+        target: /home/www/user/dawson

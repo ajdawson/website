@@ -23,6 +23,6 @@ Generate site for production:
 
     hyde gen -c production.yaml
 
-Publish site via SSH (SSH publisher requires hyde version > 0.8.6):
+Publish site to Github:
 
-    hyde publish -c production.yaml
+    hyde publish -c production.yaml -p github

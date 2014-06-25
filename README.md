@@ -1,6 +1,6 @@
 My Personal Web Page, built with [Hyde](http://hyde.github.io/).
 
-See the rendered version at http://www.atm.ox.ac.uk/user/dawson.
+See the rendered version at http://ajdawson.github.io.
 
 The design is based on https://github.com/jakevdp/website.
 
@@ -23,6 +23,6 @@ Generate site for production:
 
     hyde gen -c production.yaml
 
-Publish site to Github:
+Publish site to Github pages:
 
     hyde publish -c production.yaml -p github

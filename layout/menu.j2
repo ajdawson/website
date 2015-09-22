@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#ajd-site-navbar" aria-expanded="false">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ content_url('index.html') }}">Andrew Dawson</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="ajd-site-navbar">
+            <ul class="nav navbar-nav">
+                {% for item in menu -%}
+                {% set active = False -%}
+                {% if item.type == 'page' -%}
+                    {% set active = (resource.url ==
+                        site.content.resource_from_relative_path(item.url).url) -%}
+                {% else -%}
+                    {% set active = (node ==
+                        site.content.node_from_relative_path(item.url)) -%}
+                {%- endif %}
+                <li{% if active %} class="active"{% endif %}>
+                    <a title="{{ item.description }}"
+                       href="{{ content_url(item.url) }}">{{ item.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+            <!--<ul class="nav navbar-nav navbar-right">
+                <li><a href="http://www2.physics.ox.ac.uk/contacts/people/dawson">Oxford Physics</a></li>
+            </ul>-->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://bitbucket.org/ajdawson">Bitbucket</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://github.com/ajdawson">Github</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

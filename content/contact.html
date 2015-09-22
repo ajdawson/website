@@ -1,33 +1,38 @@
 ---
-extends: minimal.j2
-default_block: main
 title: Contact
-description: Contact information
+description: Ways you can get in touch with me
 ---
-
+<!--
+{% block css %}
+{{ super() }}
 <style type="text/css">
   span.codedirection { unicode-bidi:bidi-override; direction: rtl; }
 </style>
+{% endblock css %}
+-->
 
-<h1>Contact information</h1>
+<h2>Dr Andrew Dawson</h2>
 <hr/>
-<p>Dr Andrew Dawson</p>
-<p>Atmospheric, Oceanic & Planetary Physics<br/>
-Clarendon Laboratory<br/>
-Parks Road<br/>
-Oxford</br>
-OX1 3PU, UK</p>
+
+<p>
+    Atmospheric, Oceanic & Planetary Physics<br/>
+    Clarendon Laboratory<br/>
+    Parks Road<br/>
+    Oxford</br>
+    OX1 3PU, UK
+</p>
 
 <p>Tel: +44 (0)1865 282438</p>
 
-<p>Email: 
-<script language="javascript">
-    var mailpart = "physics.ox.ac.uk";
-    mailpart = ("andrew.dawson" + "@" + mailpart)
-    document.write('<a href="mai' + 'lto:' + mailpart + '">');
-    document.write('' + mailpart + '</a>');
-</script>
-<noscript>
-    <span class="codedirection">ku.ca.xo.scisyhp _ta_ noswad.werdna</span>
-</noscript>
+<p>
+    Email: 
+    <script language="javascript">
+        var mailpart = "physics.ox.ac.uk";
+        mailpart = ("andrew.dawson" + "@" + mailpart)
+        document.write('<a href="mai' + 'lto:' + mailpart + '">');
+        document.write('' + mailpart + '</a>');
+    </script>
+    <noscript>
+        <span class="codedirection">ku.ca.xo.scisyhp _ta_ noswad.werdna</span>
+    </noscript>
 </p>

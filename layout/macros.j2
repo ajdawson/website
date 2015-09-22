@@ -1,0 +1,38 @@
+{# Blogging macros: #}
+
+{% macro render_excerpt(res, class=None) %}
+{% refer to res.url as post %}
+<article>
+    <h3><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a></h3>
+    <a href="{{ content_url(res.url) }}">{{ post.image|markdown|typogrify }}</a>
+    <p>Posted:
+        <time datetime="{{ res.meta.created.strftime('%Y-%m-%d') }}">
+            {{ res.meta.created.strftime('%a, %d %b %Y') }}
+        </time>
+    </p>
+    <p>{{ post.excerpt|markdown|typogrify }}</p>
+</article>
+<hr/>
+{% endmacro %}
+
+{% macro blog_navigation(res) -%}
+<nav>
+    <ul class="pager">
+        <li><a href="{{ content_url(res.node.url) }}">Back</a></li>
+        <li>
+            <a class="prev {{ ' disabled' if not res.next_by_time }}"
+            title="{{ res.next_by_time.meta.title }}"
+            {% if res.next_by_time %}href="{{ content_url(res.next_by_time.url) }}"{% endif %}>
+            Previous
+            </a>
+        </li>
+        <li>
+            <a class="next {{ ' disabled' if not res.prev_by_time }}"
+               title="{{ res.prev_by_time.meta.title }}"
+               {% if res.prev_by_time %}href="{{ content_url(res.prev_by_time.url) }}"{% endif %}>
+                Next
+            </a>
+        </li>
+    </ul>
+</nav>
+{%- endmacro %}

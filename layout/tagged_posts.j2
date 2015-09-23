@@ -1,0 +1,32 @@
+{% extends "base.j2" %}
+
+
+{% block page_header -%}
+<h1>{{ resource.node.parent.get_resource('index.html').meta.title }}</h1>
+<h3>{{ resource.node.parent.get_resource('index.html').meta.description }}</h3>
+{%- endblock %}
+
+{% block content %}
+
+<h2>Tag: {{ tag.name }}</h2>
+<hr/>
+
+<ul>
+    {% for resource in walker() -%}
+    <li>
+        <time datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
+            {{ resource.meta.created.strftime('%a, %d %b %Y') }}
+        </time>
+        <a href="{{ content_url(resource.url) }}">{{ resource.meta.title }}</a>
+        {% if resource.meta.tags %}
+            <p>{% for tag in resource.meta.tags -%}
+                <a class="small" href="{{ content_url('blog/tags/'~tag~'.html')}}">{{ tag }}</a>
+                {% if not loop.last -%}{{ " " }}{%- endif %}
+                {% endfor -%}
+            </p>
+        {% endif %}
+    </li>
+    {%- endfor %}
+</ul>
+    
+{% endblock %}

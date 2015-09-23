@@ -1,11 +1,20 @@
 ---
-extends: minimal.j2
-default_block: main
+extends: mainpage.j2
 title: Andrew Dawson
-description: Home page of Andrew Dawson
+description: Andrew Dawson's Homepage
 ---
 
-<img src="{{media_url('images/l63_square.png')}}" alt="Lorenz Attractor" width=480 height=480>
-<p>I'm a senior research computing associate at the University of Oxford, where I do research and teach in the sub-department of Atmospheric, Oceanic & Planetary Physics.</p>
-
-<p>Previously I was a senior oceanographer at Fugro GEOS Ltd where I was responsible for the development and deployment of numerical models for operational weather forecasting and the production of hindcast models for the company's consultancy group.</p>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-5">
+            <img class="img-responsive" src="{{ media_url('images/l63.png') }}" style="max-width: 90%;" />
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+            <div class="intro">
+            <h2>Andrew Dawson</h2>
+                <p>I'm a senior research computing associate at the University of Oxford, where I do research and teach in the sub-department of Atmospheric, Oceanic & Planetary Physics.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,14 +2,12 @@ My Personal Web Page, built with [Hyde](http://hyde.github.io/).
 
 See the rendered version at http://ajdawson.github.io.
 
-The design is based on https://github.com/jakevdp/website.
-
 Building
 ========
 
 Requires hyde:
 
-    pip install hyde
+    conda install hyde
 
 Generate version for local development:
 

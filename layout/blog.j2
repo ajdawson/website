@@ -1,0 +1,60 @@
+{% extends "base.j2" %}
+
+{% from "macros.j2" import blog_navigation with context %}
+
+{% block page_header -%}
+<h1>{{ resource.node.get_resource('index.html').meta.title }}</h1>
+<h3>{{ resource.node.get_resource('index.html').meta.description }}</h3>
+{%- endblock %}
+
+{% block content -%}
+
+<article class="post">
+    
+    {{ blog_navigation(resource) }}
+
+    <h2>{{ resource.meta.title }}</h2>
+    {% if resource.meta.description -%}<h3>{{ resource.meta.description }}</h3>{% endif -%}
+    
+    <time datetime="{{ resource.meta.created.strftime('%Y-%m-%d') }}">
+        Posted: {{ resource.meta.created.strftime('%a, %d %b %Y') }}
+    </time>
+    {% if resource.meta.tags %}
+    <ul class="nav nav-pills">
+        {% for tag in resource.meta.tags %}
+        <li>
+            <a class="small" href="{{ content_url('blog/tags/'~tag~'.html') }}">
+                {{ tag }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    <hr/>
+    
+    {% filter markdown|typogrify -%}
+    {% mark post -%}
+    {% block post -%}{%- endblock %}
+    {%- endmark %}
+    {%- endfilter %}
+
+    <hr/>
+    
+    <a href="https://twitter.com/share" class="twitter-share-button" data-via="ajdawson" data-dnt="true">Tweet</a>
+    <div class="g-plusone" data-size="small" data-annotation="inline" data-width="300" data-href="{{ resource.url }}"></div>
+
+    {{ blog_navigation(resource) }}
+    
+</article>
+
+{%- endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'en-GB'}
+</script>
+{% endblock %}
+

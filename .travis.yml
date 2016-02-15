@@ -1,0 +1,11 @@
+language: python
+
+env:
+  global:
+    - secure: "E22ql4aU4IWAMKcumcwbom9fh9URLq/mCQ9nN1x62bP8+P/6Upqk1ozm2f0mAPadLaCzJeXSY9rr8YCYMTPZjl/OIiNzV/xVgO2onuwqzrDsmsnNHbrxeoGqiymWe20x3qfe4vtC0oOOOfLB3pOYwQtEPhSt/Az0w0LGcDaKUTc="
+
+install:
+  - pip install hyde
+
+script:
+  - bash deploy.sh

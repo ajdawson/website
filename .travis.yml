@@ -2,7 +2,10 @@ language: python
 
 env:
   global:
+    - GH_REF: github.com/ajdawson/ajdawson.github.io.git
     - secure: "E22ql4aU4IWAMKcumcwbom9fh9URLq/mCQ9nN1x62bP8+P/6Upqk1ozm2f0mAPadLaCzJeXSY9rr8YCYMTPZjl/OIiNzV/xVgO2onuwqzrDsmsnNHbrxeoGqiymWe20x3qfe4vtC0oOOOfLB3pOYwQtEPhSt/Az0w0LGcDaKUTc="
+    - secure: "hU49HemjFguEb7edpSdMKgnM+OeSIvQbrjfGoHJNuaQLIQVl4M3a4sr1HEc6uMLJdCbdVa0LzZY72N+s9LfL/+M9WtwcGb8+1w2ceTxpUEVCuo/MxZlw6mUoQctyc+eY8rTg5+JmdZJdW2ncMPUiuzFyg3HvQl5bBY0GLrjBtEc="
+    - secure: "fuoPR7lYk+7PC+ymapWvZbikFCJVbIhxvUUmw8wtWNWvSKhjsmv+QsskamVJfiOk0e8+pIi7n7L70Umj/DE14rYy7fl3YHd7aL71uczYV3N4/+rXAZlI7k89hsyUhqmvCqCY1Uya/ZTy3GC/NRxRuVkPtQL7ykFk6EVrV4H/rzA="
 
 install:
   - pip install hyde

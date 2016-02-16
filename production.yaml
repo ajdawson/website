@@ -8,4 +8,4 @@ publisher:
     github:
         type: hyde.ext.publishers.dvcs.Git
         path: ../ajdawson.github.io
-        url: https://$GH_TOKEN@github.com:ajdawson/ajdawson.github.io.git
+        url: https://$GH_TOKEN@github.com/ajdawson/ajdawson.github.io.git

@@ -7,6 +7,8 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
     exit 0
 fi
 
-mkdir ../ajdawson.github.io
+git config --global user.name "$GIT_USER"
+git config --global user.email "$GIT_EMAIL"
+git clone https://${GH_TOKEN}@${GH_REF} ../ajdawson.github.io
 hyde gen -c production.yaml
 hyde publish -c production.yaml -p github
